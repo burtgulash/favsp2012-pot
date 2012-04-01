@@ -49,7 +49,7 @@ _div:
 		shlr.w	R4
 		
 
-L1
+L1:
 		cmp.w	R4,R3				; R3 > R4 -> L2
 		bhi		L2
 		shll.w	R3
@@ -57,7 +57,7 @@ L1
 L2:
 
 
-L3
+L3:
 		cmp.w	R1,R3				; R3 < R1 -> L4
 		blo		L4
 		
