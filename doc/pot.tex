@@ -29,5 +29,16 @@ rozkódovány, respektive zakódovány.
 
 \section{Využitá paměť}
 Program má v paměti uložené pomocné texty pro komunikaci s uživatelem, tzn. 
+\begin{tabular}{|c|c|c|c|}
+\hline
+proměnná & typ & obsah & umístění v paměti \\
+\hline
+delenec  & .asciz & "Delenec:  " & \\
+delitel  & .asciz & "Delitel:  " & \\
+podil    & .asciz & "Podil:    " & \\
+zbytek   & .asciz & "Zbytek:   " & \\
+buffer   & .space & 32+1 \\
+\hline
+\end{tabular}
 
 \end{document}
