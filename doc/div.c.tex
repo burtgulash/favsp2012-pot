@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kt}{int} \PY{n+nf}{div}\PY{p}{(}\PY{k+kt}{int} \PY{n}{a}\PY{p}{,} \PY{k+kt}{int} \PY{n}{b}\PY{p}{)}
+\PY{p}{\PYZob{}}
+    \PY{k+kt}{int} \PY{n}{q}\PY{p}{,} \PY{n}{x}\PY{p}{;}
+
+    \PY{n}{q} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{;}
+    \PY{n}{x} \PY{o}{=} \PY{n}{b}\PY{p}{;}
+
+    \PY{k}{while} \PY{p}{(}\PY{n}{x} \PY{o}{<}\PY{o}{=} \PY{p}{(}\PY{n}{a} \PY{o}{>}\PY{o}{>} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+        \PY{n}{x} \PY{o}{<}\PY{o}{<}\PY{o}{=} \PY{l+m+mi}{1}\PY{p}{;}
+    \PY{k}{while} \PY{p}{(}\PY{n}{x} \PY{o}{>}\PY{o}{=} \PY{n}{b}\PY{p}{)} \PY{p}{\PYZob{}}
+        \PY{k}{if} \PY{p}{(}\PY{n}{a} \PY{o}{>}\PY{o}{=} \PY{n}{x}\PY{p}{)} \PY{p}{\PYZob{}}
+            \PY{n}{q} \PY{o}{|}\PY{o}{=} \PY{l+m+mi}{1}\PY{p}{;}
+            \PY{n}{a} \PY{o}{-}\PY{o}{=} \PY{n}{x}\PY{p}{;}
+        \PY{p}{\PYZcb{}}
+        \PY{n}{x} \PY{o}{>}\PY{o}{>}\PY{o}{=} \PY{l+m+mi}{1}\PY{p}{;}
+        \PY{n}{q} \PY{o}{<}\PY{o}{<}\PY{o}{=} \PY{l+m+mi}{1}\PY{p}{;}
+    \PY{p}{\PYZcb{}}
+    \PY{n}{q} \PY{o}{>}\PY{o}{>}\PY{o}{=} \PY{l+m+mi}{1}\PY{p}{;}
+
+    \PY{k}{return} \PY{n}{q}\PY{p}{;}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}

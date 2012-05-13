@@ -11,11 +11,15 @@
 
 delenec:	.asciz	"Delenec: "
 delitel:	.asciz	"Delitel: "
+podil:		.asciz	"Podil: "
+zbytek:		.asciz	"Zbytek: "
 buffer:		.space	32+1		; staci 4+1
 
 par_nec:	.long	delenec
 par_tel:	.long	delitel
-par_in:		.long	buffer
+par_dil:	.long	podil
+par_tek:	.long	zbytek
+par_buf:	.long	buffer
 
 ; -------- stack ------
 		.align	2
@@ -139,7 +143,7 @@ _to_hex:
 		push.l	ER4
 		; ------------------------
 
-		mov.w	@(8,ER6),R1
+		mov.l	@(8,ER6),ER1
 		mov.l	@(12,ER6),ER0
 		mov.w	#16,R3
 		xor.l	ER4,ER4
@@ -200,18 +204,19 @@ L12:
 
 _start:	mov.l	#stck,ER7
 
+; TODO printovat newliny po kazdym printu
 ; --- ziskat delenec ---
 		PRINT 	par_nec
-		INPUT	buffer
-		push.l	buffer
+		INPUT	par_buf
+		push.l	#buffer
 		jsr		@_from_hex
 		add.l	#4,ER7
 		mov.w	R0,R1
 
 ; --- ziskat delitel ---
 		PRINT 	par_tel
-		INPUT	buffer
-		push.l	buffer
+		INPUT	par_buf
+		push.l	#buffer
 		jsr		@_from_hex
 		add.l	#4,ER7
 		mov.w	R0,R2
@@ -219,10 +224,19 @@ _start:	mov.l	#stck,ER7
 ; --- vydelit ---
 		push.w	R2
 		push.w	R1
-		jsr		@_div
+		jsr		@_div	; Podil v R0, Zbytek v E0
 		add.l	#8,ER7
 
 ; --- TODO print vysledky ---
+		PRINT	par_dil
+		push.l	#buffer 	; --- FIXME je tam #, @ nebo nic? ---
+		push.w	R0			; --- FIXME parametry spatne?
+		jsr		@_to_hex
+		add.l	#8,ER7
+		PRINT 	par_buf
+		
+; --- TODO print zbytek ---
+		PRINT	par_tek
 
 mbora:		
 		bra	mbora

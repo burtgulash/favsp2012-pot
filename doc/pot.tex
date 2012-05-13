@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+
+\include{pygments}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+	\mbox{} \\[3cm]
+	\huge{Semestrální práce z předmětu KIV/POT} \\[2.5cm]
+	\Large{Tomáš Maršálek} \\
+	\large{marsalet@students.zcu.cz} \\[1cm]
+	\normalsize{\today}
+\end{center}
+\thispagestyle{empty}
+\end{titlepage}
+
+\section{Zadání}
+Dělení 16 bitů / 16 bitů = 16 bitů + 16 bitů (výsledek + zbytek) (bez použití
+instrukce dělení). Vstupy a výstupy hexadecimálně.
+
+\section{Řešení}
+Na dělení je použit klasický algoritmus dělení (long division). Ve vyšším
+jazyce odpovídá následujícímu kódu:
+\input{div.c}
+Vstupy a výstupy používají pomocný buffer, ze kterého jsou Hornerovým schématem
+rozkódovány, respektive zakódovány.
+
+\section{Využitá paměť}
+Program má v paměti uložené pomocné texty pro komunikaci s uživatelem, tzn. 
+
+\end{document}
